@@ -16,15 +16,7 @@ namespace RegistroUsuarios.BLL
             if (!Existe(personas.UsuarioId))
                 return Insertar(personas);
             else
-                return false;
-        }
-
-        public static bool Editar(Persona personas)
-        {
-            if (Existe(personas.UsuarioId))
                 return Modificar(personas);
-            else
-                return false;
         }
 
         private static bool Insertar(Persona personas)

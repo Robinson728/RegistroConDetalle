@@ -15,6 +15,8 @@ namespace RegistroUsuarios.Entidades
         public string Nombre { get; set; }
         public string Email { get; set; }
         public string Clave { get; set; }
+        public string ConfirmarClave { get; set; }
+        public string Costo { get; set; }
         public string Rol { get; set; }
         public int RolId { get; set; }
         public bool Activo { get; set; }
@@ -27,6 +29,8 @@ namespace RegistroUsuarios.Entidades
             Nombre = string.Empty;
             Email = string.Empty;
             Clave = string.Empty;
+            ConfirmarClave = string.Empty;
+            Costo = string.Empty;
             Rol = string.Empty;
             RolId = 0;
             Activo = false;
