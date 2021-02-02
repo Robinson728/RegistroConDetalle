@@ -42,7 +42,6 @@ C:\Users\Link\OneDrive\Documentos\Custom Office Templates\Semestre 1-2021\Progra
 C:\Users\Link\OneDrive\Documentos\Custom Office Templates\Semestre 1-2021\Programación Aplicada\Tarea3\RegistroUsuarios\bin\Debug\net5.0-windows\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\Link\OneDrive\Documentos\Custom Office Templates\Semestre 1-2021\Programación Aplicada\Tarea3\RegistroUsuarios\bin\Debug\net5.0-windows\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\Link\OneDrive\Documentos\Custom Office Templates\Semestre 1-2021\Programación Aplicada\Tarea3\RegistroUsuarios\obj\Debug\net5.0-windows\RegistroUsuarios.csprojAssemblyReference.cache
-C:\Users\Link\OneDrive\Documentos\Custom Office Templates\Semestre 1-2021\Programación Aplicada\Tarea3\RegistroUsuarios\obj\Debug\net5.0-windows\RegistroUsuarios.Form1.resources
 C:\Users\Link\OneDrive\Documentos\Custom Office Templates\Semestre 1-2021\Programación Aplicada\Tarea3\RegistroUsuarios\obj\Debug\net5.0-windows\RegistroUsuarios.csproj.GenerateResource.cache
 C:\Users\Link\OneDrive\Documentos\Custom Office Templates\Semestre 1-2021\Programación Aplicada\Tarea3\RegistroUsuarios\obj\Debug\net5.0-windows\RegistroUsuarios.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Link\OneDrive\Documentos\Custom Office Templates\Semestre 1-2021\Programación Aplicada\Tarea3\RegistroUsuarios\obj\Debug\net5.0-windows\RegistroUsuarios.AssemblyInfoInputs.cache
@@ -54,3 +53,4 @@ C:\Users\Link\OneDrive\Documentos\Custom Office Templates\Semestre 1-2021\Progra
 C:\Users\Link\OneDrive\Documentos\Custom Office Templates\Semestre 1-2021\Programación Aplicada\Tarea3\RegistroUsuarios\obj\Debug\net5.0-windows\RegistroUsuarios.pdb
 C:\Users\Link\OneDrive\Documentos\Custom Office Templates\Semestre 1-2021\Programación Aplicada\Tarea3\RegistroUsuarios\obj\Debug\net5.0-windows\RegistroUsuarios.genruntimeconfig.cache
 C:\Users\Link\OneDrive\Documentos\Custom Office Templates\Semestre 1-2021\Programación Aplicada\Tarea3\RegistroUsuarios\obj\Debug\net5.0-windows\RegistroUsuarios.Properties.Resources.resources
+C:\Users\Link\OneDrive\Documentos\Custom Office Templates\Semestre 1-2021\Programación Aplicada\Tarea3\RegistroUsuarios\obj\Debug\net5.0-windows\RegistroUsuarios.RegistroUsuarios.resources

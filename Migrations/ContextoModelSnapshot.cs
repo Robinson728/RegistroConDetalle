@@ -34,9 +34,6 @@ namespace RegistroUsuarios.Migrations
                     b.Property<string>("ConfirmarClave")
                         .HasColumnType("TEXT");
 
-                    b.Property<float>("Costo")
-                        .HasColumnType("REAL");
-
                     b.Property<string>("Email")
                         .HasColumnType("TEXT");
 

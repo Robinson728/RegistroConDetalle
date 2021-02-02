@@ -18,7 +18,6 @@ namespace RegistroUsuarios.Migrations
                     Email = table.Column<string>(type: "TEXT", nullable: true),
                     Clave = table.Column<string>(type: "TEXT", nullable: true),
                     ConfirmarClave = table.Column<string>(type: "TEXT", nullable: true),
-                    Costo = table.Column<string>(type: "TEXT", nullable: true),
                     Rol = table.Column<string>(type: "TEXT", nullable: true),
                     RolId = table.Column<int>(type: "INTEGER", nullable: false),
                     Activo = table.Column<bool>(type: "INTEGER", nullable: false),

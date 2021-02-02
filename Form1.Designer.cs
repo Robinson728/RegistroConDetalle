@@ -1,7 +1,7 @@
 ﻿
 namespace RegistroUsuarios
 {
-    partial class Form1
+    partial class RegistroUsuarios
     {
         /// <summary>
         ///  Required designer variable.
@@ -30,7 +30,7 @@ namespace RegistroUsuarios
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroUsuarios));
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,8 +55,6 @@ namespace RegistroUsuarios
             this.button1 = new System.Windows.Forms.Button();
             this.txt_confirmar = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txt_costohora = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -65,7 +63,7 @@ namespace RegistroUsuarios
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(589, 12);
+            this.dateTimePicker1.Location = new System.Drawing.Point(589, 190);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(103, 23);
             this.dateTimePicker1.TabIndex = 47;
@@ -82,7 +80,7 @@ namespace RegistroUsuarios
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(489, 15);
+            this.label6.Location = new System.Drawing.Point(489, 193);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 15);
             this.label6.TabIndex = 44;
@@ -269,7 +267,7 @@ namespace RegistroUsuarios
             // 
             // txt_confirmar
             // 
-            this.txt_confirmar.Location = new System.Drawing.Point(348, 190);
+            this.txt_confirmar.Location = new System.Drawing.Point(349, 190);
             this.txt_confirmar.Name = "txt_confirmar";
             this.txt_confirmar.Size = new System.Drawing.Size(134, 23);
             this.txt_confirmar.TabIndex = 75;
@@ -278,37 +276,18 @@ namespace RegistroUsuarios
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(249, 193);
+            this.label9.Location = new System.Drawing.Point(250, 193);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(93, 15);
             this.label9.TabIndex = 74;
             this.label9.Text = "Confirmar Clave";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // txt_costohora
-            // 
-            this.txt_costohora.Location = new System.Drawing.Point(599, 190);
-            this.txt_costohora.Name = "txt_costohora";
-            this.txt_costohora.Size = new System.Drawing.Size(93, 23);
-            this.txt_costohora.TabIndex = 77;
-            this.txt_costohora.TextChanged += new System.EventHandler(this.txt_costohora_TextChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(516, 193);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 15);
-            this.label10.TabIndex = 76;
-            this.label10.Text = "Costo X Hora";
-            // 
-            // Form1
+            // RegistroUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(723, 316);
-            this.Controls.Add(this.txt_costohora);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_confirmar);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.button1);
@@ -333,7 +312,7 @@ namespace RegistroUsuarios
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label6);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "RegistroUsuarios";
             this.Text = "Registro de Usuario";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -370,8 +349,6 @@ namespace RegistroUsuarios
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txt_confirmar;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txt_costohora;
-        private System.Windows.Forms.Label label10;
     }
 }
 
