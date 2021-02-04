@@ -132,6 +132,27 @@ namespace RegistroUsuarios.BLL
             return encontrado;
         }
 
+        public static bool ExisteAlias(string pronombre)
+        {
+            Contexto contexto = new Contexto();
+            bool encontrado = false;
+
+            try
+            {
+                encontrado = contexto.Usuario.Any(e => e.Alias == pronombre);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return encontrado;
+        }
+
         private static List<Usuario> GetList(Expression<Func<Usuario, bool>> criterio)
         {
             List<Usuario> lista = new List<Usuario>();

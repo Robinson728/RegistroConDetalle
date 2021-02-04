@@ -321,6 +321,8 @@ namespace RegistroUsuarios
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label6);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "RegistroUsuarios";
             this.Text = "Registro de Usuario";
             this.Load += new System.EventHandler(this.RegistroUsuario_Load);

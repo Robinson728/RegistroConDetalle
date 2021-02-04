@@ -9,7 +9,7 @@ using RegistroUsuarios.DAL;
 namespace RegistroUsuarios.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20210204062441_Inicial")]
+    [Migration("20210204142014_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

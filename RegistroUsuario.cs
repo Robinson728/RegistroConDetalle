@@ -117,14 +117,17 @@ namespace RegistroUsuarios
                 EmailTextBox.Focus();
                 paso = false;
             }
-            else if(string.Equals(cadena, cadena2) == true)
-            {
-                paso = true;
-            }
-            else
+            else if(string.Equals(cadena, cadena2) != true)
             {
                 errorProvider1.SetError(ConfirmarTextBox, "La clave es distinta");
                 ConfirmarTextBox.Focus();
+                paso = false;
+            }
+            else if(UsuarioBLL.ExisteAlias(AliasTextBox.Text))
+            {
+                errorProvider1.SetError(AliasTextBox, "El Campo alias ya existe");
+                AliasTextBox.Focus();
+                AliasTextBox.Clear();
                 paso = false;
             }
 
@@ -163,7 +166,7 @@ namespace RegistroUsuarios
 
             if ((ExisteEnLaBaseDeDatos()))
             {
-                paso = UsuarioBLL.Modificar(usuarios);
+                paso = UsuarioBLL.Guardar(usuarios);
                 MessageBox.Show("Modificado!!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -185,6 +188,7 @@ namespace RegistroUsuarios
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             int id;
+            string pronombre = "";
             Usuario usuarios = new Usuario();
             int.TryParse(IdNumericUpDown.Text, out id);
 
