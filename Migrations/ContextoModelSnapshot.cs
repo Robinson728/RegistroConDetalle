@@ -16,7 +16,7 @@ namespace RegistroUsuarios.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.2");
 
-            modelBuilder.Entity("RegistroUsuarios.Entidades.Persona", b =>
+            modelBuilder.Entity("RegistroUsuarios.Entidades.Usuario", b =>
                 {
                     b.Property<int>("UsuarioId")
                         .ValueGeneratedOnAdd()
@@ -51,7 +51,7 @@ namespace RegistroUsuarios.Migrations
 
                     b.HasKey("UsuarioId");
 
-                    b.ToTable("Persona");
+                    b.ToTable("Usuario");
                 });
 #pragma warning restore 612, 618
         }

@@ -39,42 +39,42 @@ namespace RegistroUsuarios
             errorProvider1.Clear();
         }
 
-        private void LlenaCampo(Persona personas)
+        private void LlenaCampo(Usuario usuarios)
         {
             
-            IdNumericUpDown.Value = personas.UsuarioId;
-            NombreTextBox.Text = personas.Nombre;
-            AliasTextBox.Text = personas.Alias;
-            EmailTextBox.Text = personas.Email;
-            ClaveTextBox.Text = personas.Clave;
-            RolComboBox.Text = personas.Rol;
-            ConfirmarTextBox.Text = personas.ConfirmarClave;
-            numericUpDown1.Value = personas.RolId;
-            FechaDateTimePicker.Value = personas.FechaIngreso;
-            ActivoCheckBox.Checked = personas.Activo;
+            IdNumericUpDown.Value = usuarios.UsuarioId;
+            NombreTextBox.Text = usuarios.Nombre;
+            AliasTextBox.Text = usuarios.Alias;
+            EmailTextBox.Text = usuarios.Email;
+            ClaveTextBox.Text = usuarios.Clave;
+            RolComboBox.Text = usuarios.Rol;
+            ConfirmarTextBox.Text = usuarios.ConfirmarClave;
+            numericUpDown1.Value = usuarios.RolId;
+            FechaDateTimePicker.Value = usuarios.FechaIngreso;
+            ActivoCheckBox.Checked = usuarios.Activo;
         }
 
-        private Persona LlenaClase()
+        private Usuario LlenaClase()
         {
-            Persona personas = new Persona();
-            personas.UsuarioId = (int)IdNumericUpDown.Value;
-            personas.Nombre = NombreTextBox.Text;
-            personas.Email = EmailTextBox.Text;
-            personas.Alias = AliasTextBox.Text;
-            personas.Clave = ClaveTextBox.Text;
-            personas.ConfirmarClave = ConfirmarTextBox.Text;
-            personas.Rol = RolComboBox.Text;
-            personas.RolId = (int)numericUpDown1.Value;
-            personas.FechaIngreso = FechaDateTimePicker.Value;
-            personas.Activo = ActivoCheckBox.Checked;
+            Usuario usuarios = new Usuario();
+            usuarios.UsuarioId = (int)IdNumericUpDown.Value;
+            usuarios.Nombre = NombreTextBox.Text;
+            usuarios.Email = EmailTextBox.Text;
+            usuarios.Alias = AliasTextBox.Text;
+            usuarios.Clave = ClaveTextBox.Text;
+            usuarios.ConfirmarClave = ConfirmarTextBox.Text;
+            usuarios.Rol = RolComboBox.Text;
+            usuarios.RolId = (int)numericUpDown1.Value;
+            usuarios.FechaIngreso = FechaDateTimePicker.Value;
+            usuarios.Activo = ActivoCheckBox.Checked;
 
-            return personas;
+            return usuarios;
         }
         private bool ExisteEnLaBaseDeDatos()
         {
-            Persona personas = PersonaBLL.Buscar((int)IdNumericUpDown.Value);
+            Usuario usuarios = UsuarioBLL.Buscar((int)IdNumericUpDown.Value);
 
-            return (personas != null);
+            return (usuarios != null);
         }
 
         private bool Validar()
@@ -145,7 +145,7 @@ namespace RegistroUsuarios
 
             Limpiar();
 
-            if (PersonaBLL.Eliminar(id))
+            if (UsuarioBLL.Eliminar(id))
                 MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 errorProvider1.SetError(IdNumericUpDown, "Id no existente");
@@ -153,15 +153,15 @@ namespace RegistroUsuarios
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            Persona personas;
+            Usuario usuarios;
             bool paso = false;
 
             if (!Validar())
                 return;
 
-            personas = LlenaClase();
+            usuarios = LlenaClase();
 
-            paso = PersonaBLL.Guardar(personas);
+            paso = UsuarioBLL.Guardar(usuarios);
 
             if (paso)
             {
@@ -177,16 +177,16 @@ namespace RegistroUsuarios
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             int id;
-            Persona personas = new Persona();
+            Usuario usuarios = new Usuario();
             int.TryParse(IdNumericUpDown.Text, out id);
 
             Limpiar();
 
-            personas = PersonaBLL.Buscar(id);
+            usuarios = UsuarioBLL.Buscar(id);
 
-            if (personas != null)
+            if (usuarios != null)
             {
-                LlenaCampo(personas);
+                LlenaCampo(usuarios);
             }
             else
             {

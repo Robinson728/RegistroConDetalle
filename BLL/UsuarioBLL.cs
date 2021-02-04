@@ -9,24 +9,24 @@ using System.Threading.Tasks;
 
 namespace RegistroUsuarios.BLL
 {
-    public class PersonaBLL
+    public class UsuarioBLL
     {
-        public static bool Guardar(Persona personas)
+        public static bool Guardar(Usuario usuarios)
         {
-            if (!Existe(personas.UsuarioId))
-                return Insertar(personas);
+            if (!Existe(usuarios.UsuarioId))
+                return Insertar(usuarios);
             else
-                return Modificar(personas);
+                return Modificar(usuarios);
         }
 
-        private static bool Insertar(Persona personas)
+        private static bool Insertar(Usuario usuarios)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
 
             try
             {
-                contexto.Persona.Add(personas);
+                contexto.Usuario.Add(usuarios);
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -41,14 +41,14 @@ namespace RegistroUsuarios.BLL
             return paso;
         }
 
-        public static bool Modificar(Persona personas)
+        public static bool Modificar(Usuario usuarios)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
 
             try
             {
-                contexto.Entry(personas).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                contexto.Entry(usuarios).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -70,11 +70,11 @@ namespace RegistroUsuarios.BLL
 
             try
             {
-                var personas = contexto.Persona.Find(id);
+                var usuarios = contexto.Usuario.Find(id);
 
-                if (personas != null)
+                if (usuarios != null)
                 {
-                    contexto.Persona.Remove(personas);
+                    contexto.Usuario.Remove(usuarios);
                     paso = contexto.SaveChanges() > 0;
                 }
             }
@@ -90,14 +90,14 @@ namespace RegistroUsuarios.BLL
             return paso;
         }
 
-        public static Persona Buscar(int id)
+        public static Usuario Buscar(int id)
         {
             Contexto contexto = new Contexto();
-            Persona personas;
+            Usuario usuarios;
 
             try
             {
-                personas = contexto.Persona.Find(id);
+                usuarios = contexto.Usuario.Find(id);
             }
             catch (Exception)
             {
@@ -108,7 +108,7 @@ namespace RegistroUsuarios.BLL
                 contexto.Dispose();
             }
 
-            return personas;
+            return usuarios;
         }
 
         public static bool Existe(int id)
@@ -118,7 +118,7 @@ namespace RegistroUsuarios.BLL
 
             try
             {
-                encontrado = contexto.Persona.Any(e => e.UsuarioId == id);
+                encontrado = contexto.Usuario.Any(e => e.UsuarioId == id);
             }
             catch (Exception)
             {
@@ -132,14 +132,14 @@ namespace RegistroUsuarios.BLL
             return encontrado;
         }
 
-        private static List<Persona> GetList(Expression<Func<Persona, bool>> criterio)
+        private static List<Usuario> GetList(Expression<Func<Usuario, bool>> criterio)
         {
-            List<Persona> lista = new List<Persona>();
+            List<Usuario> lista = new List<Usuario>();
             Contexto contexto = new Contexto();
 
             try
             {
-                lista = contexto.Persona.Where(criterio).ToList();
+                lista = contexto.Usuario.Where(criterio).ToList();
             }
             catch (Exception)
             {

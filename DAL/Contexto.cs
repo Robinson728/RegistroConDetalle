@@ -10,10 +10,10 @@ namespace RegistroUsuarios.DAL
 {
     public class Contexto : DbContext
     {
-        public DbSet<Persona> Persona { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source = GestionPersona.Db");
+            optionsBuilder.UseSqlite("Data Source = GestionUsuario.Db");
         }
     }
 }

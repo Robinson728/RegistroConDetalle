@@ -9,7 +9,7 @@ using RegistroUsuarios.DAL;
 namespace RegistroUsuarios.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20210130163309_Inicial")]
+    [Migration("20210204062441_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -18,7 +18,7 @@ namespace RegistroUsuarios.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.2");
 
-            modelBuilder.Entity("RegistroUsuarios.Entidades.Persona", b =>
+            modelBuilder.Entity("RegistroUsuarios.Entidades.Usuario", b =>
                 {
                     b.Property<int>("UsuarioId")
                         .ValueGeneratedOnAdd()
@@ -33,6 +33,9 @@ namespace RegistroUsuarios.Migrations
                     b.Property<string>("Clave")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("ConfirmarClave")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Email")
                         .HasColumnType("TEXT");
 
@@ -42,12 +45,15 @@ namespace RegistroUsuarios.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Rol")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("RolId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("UsuarioId");
 
-                    b.ToTable("Persona");
+                    b.ToTable("Usuario");
                 });
 #pragma warning restore 612, 618
         }
