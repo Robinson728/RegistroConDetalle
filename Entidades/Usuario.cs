@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,9 @@ namespace RegistroUsuarios.Entidades
         public int RolId { get; set; }
         public bool Activo { get; set; }
         public DateTime  FechaIngreso { get; set; }
+
+        [ForeignKey("RolId")]
+        public virtual Roles rol { get; set; }
 
         public Usuario()
         {
