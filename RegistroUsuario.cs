@@ -69,12 +69,19 @@ namespace RegistroUsuarios
             return (usuarios != null);
         }
 
+        private void RegistroUsuarioForm_Load(object sender, EventArgs e)
+        {
+            RolComboBox.DataSource = RolesBLL.GetRoles();
+            RolComboBox.DisplayMember = "Descripcion";
+            RolComboBox.ValueMember = "RolId";
+        }
+
         private bool Validar()
         {
             bool paso = true;
             errorProvider1.Clear();
 
-            if(AliasTextBox.Text == string.Empty)
+            if (AliasTextBox.Text == string.Empty)
             {
                 errorProvider1.SetError(AliasTextBox, "El campo nombre no puede estar vacio");
                 AliasTextBox.Focus();
@@ -104,16 +111,22 @@ namespace RegistroUsuarios
                 EmailTextBox.Focus();
                 paso = false;
             }
-            else if(string.Equals(ClaveTextBox.Text, ConfirmarTextBox.Text) != true)
+            else if (string.Equals(ClaveTextBox.Text, ConfirmarTextBox.Text) != true)
             {
                 errorProvider1.SetError(ConfirmarTextBox, "La clave es distinta");
                 ConfirmarTextBox.Focus();
                 paso = false;
             }
-            else if(UsuarioBLL.ExisteAlias(AliasTextBox.Text))
+            else if (UsuarioBLL.ExisteAlias(AliasTextBox.Text))
             {
                 errorProvider1.SetError(AliasTextBox, "El Campo alias ya existe");
                 AliasTextBox.Focus();
+                paso = false;
+            }
+            else if (UsuarioBLL.ExisteRol(RolComboBox.Text)) 
+            {
+                errorProvider1.SetError(RolComboBox, "El Campo alias ya existe");
+                RolComboBox.Focus();
                 paso = false;
             }
             return paso;

@@ -16,6 +16,23 @@ namespace RegistroUsuarios.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.2");
 
+            modelBuilder.Entity("RegistroUsuarios.Entidades.Roles", b =>
+                {
+                    b.Property<int>("RolId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("RolId");
+
+                    b.ToTable("Roles");
+                });
+
             modelBuilder.Entity("RegistroUsuarios.Entidades.Usuario", b =>
                 {
                     b.Property<int>("UsuarioId")
@@ -46,12 +63,23 @@ namespace RegistroUsuarios.Migrations
                     b.Property<string>("Rol")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("RolId")
+                    b.Property<int?>("RolId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("UsuarioId");
 
+                    b.HasIndex("RolId");
+
                     b.ToTable("Usuario");
+                });
+
+            modelBuilder.Entity("RegistroUsuarios.Entidades.Usuario", b =>
+                {
+                    b.HasOne("RegistroUsuarios.Entidades.Roles", "rol")
+                        .WithMany()
+                        .HasForeignKey("RolId");
+
+                    b.Navigation("rol");
                 });
 #pragma warning restore 612, 618
         }

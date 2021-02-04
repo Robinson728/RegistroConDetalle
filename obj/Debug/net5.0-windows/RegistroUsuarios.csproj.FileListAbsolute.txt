@@ -54,4 +54,3 @@ C:\Users\Link\OneDrive\Documentos\Custom Office Templates\Semestre 1-2021\Progra
 C:\Users\Link\OneDrive\Documentos\Custom Office Templates\Semestre 1-2021\Programación Aplicada\Tarea3\RegistroUsuarios\obj\Debug\net5.0-windows\RegistroUsuarios.genruntimeconfig.cache
 C:\Users\Link\OneDrive\Documentos\Custom Office Templates\Semestre 1-2021\Programación Aplicada\Tarea3\RegistroUsuarios\obj\Debug\net5.0-windows\RegistroUsuarios.Properties.Resources.resources
 C:\Users\Link\OneDrive\Documentos\Custom Office Templates\Semestre 1-2021\Programación Aplicada\Tarea3\RegistroUsuarios\obj\Debug\net5.0-windows\RegistroUsuarios.RegistroUsuarios.resources
-C:\Users\Link\OneDrive\Documentos\Custom Office Templates\Semestre 1-2021\Programación Aplicada\Tarea3\RegistroUsuarios\bin\Debug\net5.0-windows\GestionUsuario.Db
