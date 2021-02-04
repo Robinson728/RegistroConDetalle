@@ -29,7 +29,6 @@ namespace RegistroUsuarios
             ClaveTextBox.Text = string.Empty;
             RolComboBox.Text = string.Empty;
             ConfirmarTextBox.Text = string.Empty;
-            numericUpDown1.Value = 0;
             FechaDateTimePicker.Value = DateTime.Now;
             errorProvider1.Clear();
         }
@@ -44,7 +43,6 @@ namespace RegistroUsuarios
             ClaveTextBox.Text = usuarios.Clave;
             RolComboBox.Text = usuarios.Rol;
             ConfirmarTextBox.Text = usuarios.ConfirmarClave;
-            numericUpDown1.Value = usuarios.RolId;
             FechaDateTimePicker.Value = usuarios.FechaIngreso;
             ActivoCheckBox.Checked = usuarios.Activo;
         }
@@ -59,7 +57,6 @@ namespace RegistroUsuarios
             usuarios.Clave = ClaveTextBox.Text;
             usuarios.ConfirmarClave = ConfirmarTextBox.Text;
             usuarios.Rol = RolComboBox.Text;
-            usuarios.RolId = (int)numericUpDown1.Value;
             usuarios.FechaIngreso = FechaDateTimePicker.Value;
             usuarios.Activo = ActivoCheckBox.Checked;
 

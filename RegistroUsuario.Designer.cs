@@ -32,7 +32,6 @@ namespace RegistroUsuarios
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroUsuarios));
             this.FechaDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,7 +44,6 @@ namespace RegistroUsuarios
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.BuscarButton = new System.Windows.Forms.Button();
             this.IdNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.ActivoCheckBox = new System.Windows.Forms.CheckBox();
             this.RolComboBox = new System.Windows.Forms.ComboBox();
             this.ClaveTextBox = new System.Windows.Forms.TextBox();
@@ -57,7 +55,6 @@ namespace RegistroUsuarios
             this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // FechaDateTimePicker
@@ -67,16 +64,6 @@ namespace RegistroUsuarios
             this.FechaDateTimePicker.Name = "FechaDateTimePicker";
             this.FechaDateTimePicker.Size = new System.Drawing.Size(103, 23);
             this.FechaDateTimePicker.TabIndex = 47;
-            this.FechaDateTimePicker.ValueChanged += new System.EventHandler(this.FechaDateTimePicker_ValueChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(461, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 15);
-            this.label3.TabIndex = 45;
-            this.label3.Text = "Rol Id";
             // 
             // label6
             // 
@@ -93,7 +80,6 @@ namespace RegistroUsuarios
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(242, 23);
             this.EmailTextBox.TabIndex = 54;
-            this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
             // 
             // label5
             // 
@@ -110,7 +96,6 @@ namespace RegistroUsuarios
             this.NombreTextBox.Name = "NombreTextBox";
             this.NombreTextBox.Size = new System.Drawing.Size(278, 23);
             this.NombreTextBox.TabIndex = 51;
-            this.NombreTextBox.TextChanged += new System.EventHandler(this.NombreTextBox_TextChanged);
             // 
             // label4
             // 
@@ -127,7 +112,6 @@ namespace RegistroUsuarios
             this.AliasTextBox.Name = "AliasTextBox";
             this.AliasTextBox.Size = new System.Drawing.Size(278, 23);
             this.AliasTextBox.TabIndex = 56;
-            this.AliasTextBox.TextChanged += new System.EventHandler(this.AliasTextBox_TextChanged);
             // 
             // label1
             // 
@@ -183,15 +167,6 @@ namespace RegistroUsuarios
             this.IdNumericUpDown.Name = "IdNumericUpDown";
             this.IdNumericUpDown.Size = new System.Drawing.Size(58, 23);
             this.IdNumericUpDown.TabIndex = 66;
-            this.IdNumericUpDown.ValueChanged += new System.EventHandler(this.IdNumericUpDown_ValueChanged);
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(504, 5);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(58, 23);
-            this.numericUpDown1.TabIndex = 67;
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // ActivoCheckBox
             // 
@@ -202,7 +177,6 @@ namespace RegistroUsuarios
             this.ActivoCheckBox.TabIndex = 68;
             this.ActivoCheckBox.Text = "Activo";
             this.ActivoCheckBox.UseVisualStyleBackColor = true;
-            this.ActivoCheckBox.CheckedChanged += new System.EventHandler(this.ActivoCheckBox_CheckedChanged);
             // 
             // RolComboBox
             // 
@@ -223,7 +197,6 @@ namespace RegistroUsuarios
             this.RolComboBox.Name = "RolComboBox";
             this.RolComboBox.Size = new System.Drawing.Size(176, 23);
             this.RolComboBox.TabIndex = 69;
-            this.RolComboBox.SelectedIndexChanged += new System.EventHandler(this.RolComboBox_SelectedIndexChanged);
             // 
             // ClaveTextBox
             // 
@@ -232,7 +205,6 @@ namespace RegistroUsuarios
             this.ClaveTextBox.PasswordChar = '*';
             this.ClaveTextBox.Size = new System.Drawing.Size(85, 23);
             this.ClaveTextBox.TabIndex = 71;
-            this.ClaveTextBox.TextChanged += new System.EventHandler(this.ClaveTextBox_TextChanged);
             // 
             // label2
             // 
@@ -271,7 +243,6 @@ namespace RegistroUsuarios
             this.ConfirmarTextBox.PasswordChar = '*';
             this.ConfirmarTextBox.Size = new System.Drawing.Size(85, 23);
             this.ConfirmarTextBox.TabIndex = 75;
-            this.ConfirmarTextBox.TextChanged += new System.EventHandler(this.ConfirmarTextBox_TextChanged);
             // 
             // label9
             // 
@@ -281,7 +252,6 @@ namespace RegistroUsuarios
             this.label9.Size = new System.Drawing.Size(93, 15);
             this.label9.TabIndex = 74;
             this.label9.Text = "Confirmar Clave";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label7
             // 
@@ -305,7 +275,6 @@ namespace RegistroUsuarios
             this.Controls.Add(this.label2);
             this.Controls.Add(this.RolComboBox);
             this.Controls.Add(this.ActivoCheckBox);
-            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.IdNumericUpDown);
             this.Controls.Add(this.BuscarButton);
             this.Controls.Add(this.GuardarButton);
@@ -318,17 +287,14 @@ namespace RegistroUsuarios
             this.Controls.Add(this.NombreTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.FechaDateTimePicker);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label6);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RegistroUsuarios";
             this.Text = "Registro de Usuario";
-            this.Load += new System.EventHandler(this.RegistroUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,7 +303,6 @@ namespace RegistroUsuarios
         #endregion
 
         private System.Windows.Forms.DateTimePicker FechaDateTimePicker;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.Label label5;
@@ -350,7 +315,6 @@ namespace RegistroUsuarios
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button BuscarButton;
         private System.Windows.Forms.NumericUpDown IdNumericUpDown;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.CheckBox ActivoCheckBox;
         private System.Windows.Forms.ComboBox RolComboBox;
         private System.Windows.Forms.Label label8;

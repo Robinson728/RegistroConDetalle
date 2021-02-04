@@ -18,7 +18,6 @@ namespace RegistroUsuarios.Entidades
         public string Clave { get; set; }
         public string ConfirmarClave { get; set; }
         public string Rol { get; set; }
-        public int RolId { get; set; }
         public bool Activo { get; set; }
         public DateTime  FechaIngreso { get; set; }
 
@@ -34,7 +33,6 @@ namespace RegistroUsuarios.Entidades
             Clave = string.Empty;
             ConfirmarClave = string.Empty;
             Rol = string.Empty;
-            RolId = 0;
             Activo = false;
             FechaIngreso = DateTime.Now;
         }
