@@ -11,6 +11,7 @@ namespace RegistroUsuarios.DAL
     public class Contexto : DbContext
     {
         public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Roles> Roles { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Data Source = GestionUsuario.Db");
