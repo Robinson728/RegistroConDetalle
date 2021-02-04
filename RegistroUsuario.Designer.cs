@@ -148,7 +148,7 @@ namespace RegistroUsuarios
             this.EliminarButton.Text = "Eliminar";
             this.EliminarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.EliminarButton.UseVisualStyleBackColor = true;
-            this.EliminarButton.Click += new System.EventHandler(this.btn_eliminar_Click);
+            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
             // GuardarButton
             // 
@@ -160,7 +160,7 @@ namespace RegistroUsuarios
             this.GuardarButton.Text = "Guardar";
             this.GuardarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.GuardarButton.UseVisualStyleBackColor = true;
-            this.GuardarButton.Click += new System.EventHandler(this.btn_guardar_Click);
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
             // errorProvider1
             // 
@@ -175,7 +175,7 @@ namespace RegistroUsuarios
             this.BuscarButton.TabIndex = 65;
             this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BuscarButton.UseVisualStyleBackColor = true;
-            this.BuscarButton.Click += new System.EventHandler(this.btn_buscar_Click);
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
             // IdNumericUpDown
             // 
@@ -229,6 +229,7 @@ namespace RegistroUsuarios
             // 
             this.ClaveTextBox.Location = new System.Drawing.Point(71, 125);
             this.ClaveTextBox.Name = "ClaveTextBox";
+            this.ClaveTextBox.PasswordChar = '*';
             this.ClaveTextBox.Size = new System.Drawing.Size(85, 23);
             this.ClaveTextBox.TabIndex = 71;
             this.ClaveTextBox.TextChanged += new System.EventHandler(this.ClaveTextBox_TextChanged);
@@ -267,6 +268,7 @@ namespace RegistroUsuarios
             // 
             this.ConfirmarTextBox.Location = new System.Drawing.Point(264, 125);
             this.ConfirmarTextBox.Name = "ConfirmarTextBox";
+            this.ConfirmarTextBox.PasswordChar = '*';
             this.ConfirmarTextBox.Size = new System.Drawing.Size(85, 23);
             this.ConfirmarTextBox.TabIndex = 75;
             this.ConfirmarTextBox.TextChanged += new System.EventHandler(this.ConfirmarTextBox_TextChanged);
@@ -321,7 +323,7 @@ namespace RegistroUsuarios
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegistroUsuarios";
             this.Text = "Registro de Usuario";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.RegistroUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

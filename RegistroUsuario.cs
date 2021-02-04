@@ -20,7 +20,7 @@ namespace RegistroUsuarios
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void RegistroUsuario_Load(object sender, EventArgs e)
         {
 
         }
@@ -131,27 +131,12 @@ namespace RegistroUsuarios
             return paso;
         }
 
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void txt_descripcion_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void label6_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btn_eliminar_Click(object sender, EventArgs e)
+        private void EliminarButton_Click(object sender, EventArgs e)
         {
             errorProvider1.Clear();
 
@@ -166,7 +151,7 @@ namespace RegistroUsuarios
                 errorProvider1.SetError(IdNumericUpDown, "Id no existente");
         }
 
-        private void btn_guardar_Click(object sender, EventArgs e)
+        private void GuardarButton_Click(object sender, EventArgs e)
         {
             Persona personas;
             bool paso = false;
@@ -189,7 +174,7 @@ namespace RegistroUsuarios
             }
         }
 
-        private void btn_buscar_Click(object sender, EventArgs e)
+        private void BuscarButton_Click(object sender, EventArgs e)
         {
             int id;
             Persona personas = new Persona();
@@ -221,7 +206,7 @@ namespace RegistroUsuarios
 
         private void ConfirmarTextBox_TextChanged(object sender, EventArgs e)
         {
-            ConfirmarTextBox.PasswordChar = '*';
+
         }
 
         private void ActivoCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -231,7 +216,7 @@ namespace RegistroUsuarios
 
         private void ClaveTextBox_TextChanged(object sender, EventArgs e)
         {
-            ClaveTextBox.PasswordChar = '*';
+
         }
 
         private void IdNumericUpDown_ValueChanged(object sender, EventArgs e)
