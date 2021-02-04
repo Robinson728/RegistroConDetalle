@@ -161,16 +161,24 @@ namespace RegistroUsuarios
 
             usuarios = LlenaClase();
 
-            paso = UsuarioBLL.Guardar(usuarios);
-
-            if (paso)
+            if ((ExisteEnLaBaseDeDatos()))
             {
-                Limpiar();
-                MessageBox.Show("Guardado!!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                paso = UsuarioBLL.Modificar(usuarios);
+                MessageBox.Show("Modificado!!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("No fue posible guardar, Id en existencia", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                paso = UsuarioBLL.Guardar(usuarios);
+
+                if (paso)
+                {
+                    Limpiar();
+                    MessageBox.Show("Guardado!!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No fue posible guardar, Id en existencia", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
