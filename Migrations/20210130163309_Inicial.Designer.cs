@@ -9,7 +9,7 @@ using RegistroUsuarios.DAL;
 namespace RegistroUsuarios.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20210202042347_Inicial")]
+    [Migration("20210130163309_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,9 +33,6 @@ namespace RegistroUsuarios.Migrations
                     b.Property<string>("Clave")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("ConfirmarClave")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Email")
                         .HasColumnType("TEXT");
 
@@ -43,9 +40,6 @@ namespace RegistroUsuarios.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Nombre")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Rol")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("RolId")

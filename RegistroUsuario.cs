@@ -27,52 +27,52 @@ namespace RegistroUsuarios
 
         private void Limpiar()
         {
-            IdnumericUpDown1.Value = 0;
-            txt_alias.Text = string.Empty;
-            txt_email.Text = string.Empty;
-            txt_nombre.Text = string.Empty;
-            txt_clave.Text = string.Empty;
-            comboBox1.Text = string.Empty;
-            txt_confirmar.Text = string.Empty;
+            IdNumericUpDown.Value = 0;
+            AliasTextBox.Text = string.Empty;
+            EmailTextBox.Text = string.Empty;
+            NombreTextBox.Text = string.Empty;
+            ClaveTextBox.Text = string.Empty;
+            RolComboBox.Text = string.Empty;
+            ConfirmarTextBox.Text = string.Empty;
             numericUpDown1.Value = 0;
-            dateTimePicker1.Value = DateTime.Now;
+            FechaDateTimePicker.Value = DateTime.Now;
             errorProvider1.Clear();
         }
 
         private void LlenaCampo(Persona personas)
         {
             
-            IdnumericUpDown1.Value = personas.UsuarioId;
-            txt_nombre.Text = personas.Nombre;
-            txt_alias.Text = personas.Alias;
-            txt_email.Text = personas.Email;
-            txt_clave.Text = personas.Clave;
-            comboBox1.Text = personas.Rol;
-            txt_confirmar.Text = personas.ConfirmarClave;
+            IdNumericUpDown.Value = personas.UsuarioId;
+            NombreTextBox.Text = personas.Nombre;
+            AliasTextBox.Text = personas.Alias;
+            EmailTextBox.Text = personas.Email;
+            ClaveTextBox.Text = personas.Clave;
+            RolComboBox.Text = personas.Rol;
+            ConfirmarTextBox.Text = personas.ConfirmarClave;
             numericUpDown1.Value = personas.RolId;
-            dateTimePicker1.Value = personas.FechaIngreso;
-            checkBox1.Checked = personas.Activo;
+            FechaDateTimePicker.Value = personas.FechaIngreso;
+            ActivoCheckBox.Checked = personas.Activo;
         }
 
         private Persona LlenaClase()
         {
             Persona personas = new Persona();
-            personas.UsuarioId = (int)IdnumericUpDown1.Value;
-            personas.Nombre = txt_nombre.Text;
-            personas.Email = txt_email.Text;
-            personas.Alias = txt_alias.Text;
-            personas.Clave = txt_clave.Text;
-            personas.ConfirmarClave = txt_confirmar.Text;
-            personas.Rol = comboBox1.Text;
+            personas.UsuarioId = (int)IdNumericUpDown.Value;
+            personas.Nombre = NombreTextBox.Text;
+            personas.Email = EmailTextBox.Text;
+            personas.Alias = AliasTextBox.Text;
+            personas.Clave = ClaveTextBox.Text;
+            personas.ConfirmarClave = ConfirmarTextBox.Text;
+            personas.Rol = RolComboBox.Text;
             personas.RolId = (int)numericUpDown1.Value;
-            personas.FechaIngreso = dateTimePicker1.Value;
-            personas.Activo = checkBox1.Checked;
+            personas.FechaIngreso = FechaDateTimePicker.Value;
+            personas.Activo = ActivoCheckBox.Checked;
 
             return personas;
         }
         private bool ExisteEnLaBaseDeDatos()
         {
-            Persona personas = PersonaBLL.Buscar((int)IdnumericUpDown1.Value);
+            Persona personas = PersonaBLL.Buscar((int)IdNumericUpDown.Value);
 
             return (personas != null);
         }
@@ -84,37 +84,37 @@ namespace RegistroUsuarios
             string cadena = "";
             string cadena2 = "";
 
-            cadena = txt_clave.Text;
-            cadena2 = txt_confirmar.Text;
+            cadena = ClaveTextBox.Text;
+            cadena2 = ConfirmarTextBox.Text;
 
-            if(txt_alias.Text == string.Empty)
+            if(AliasTextBox.Text == string.Empty)
             {
-                errorProvider1.SetError(txt_alias, "El campo nombre no puede estar vacio");
-                txt_alias.Focus();
+                errorProvider1.SetError(AliasTextBox, "El campo nombre no puede estar vacio");
+                AliasTextBox.Focus();
                 paso = false;
             }
-            else if (txt_nombre.Text == string.Empty)
+            else if (NombreTextBox.Text == string.Empty)
             {
-                errorProvider1.SetError(txt_nombre, "El campo Alias no puede estar vacio");
-                txt_nombre.Focus();
+                errorProvider1.SetError(NombreTextBox, "El campo Alias no puede estar vacio");
+                NombreTextBox.Focus();
                 paso = false;
             }
-            else if (txt_clave.Text == string.Empty)
+            else if (ClaveTextBox.Text == string.Empty)
             {
-                errorProvider1.SetError(txt_clave, "El campo Email no puede estar vacio");
-                txt_clave.Focus();
+                errorProvider1.SetError(ClaveTextBox, "El campo Email no puede estar vacio");
+                ClaveTextBox.Focus();
                 paso = false;
             }
-            else if (txt_confirmar.Text == string.Empty)
+            else if (ConfirmarTextBox.Text == string.Empty)
             {
-                errorProvider1.SetError(txt_confirmar, "El campo Alias no puede estar vacio");
-                txt_confirmar.Focus();
+                errorProvider1.SetError(ConfirmarTextBox, "El campo Alias no puede estar vacio");
+                ConfirmarTextBox.Focus();
                 paso = false;
             }
-            else if (txt_email.Text == string.Empty)
+            else if (EmailTextBox.Text == string.Empty)
             {
-                errorProvider1.SetError(txt_email, "El campo Alias no puede estar vacio");
-                txt_email.Focus();
+                errorProvider1.SetError(EmailTextBox, "El campo Alias no puede estar vacio");
+                EmailTextBox.Focus();
                 paso = false;
             }
             else if(string.Equals(cadena, cadena2) == true)
@@ -123,8 +123,8 @@ namespace RegistroUsuarios
             }
             else
             {
-                errorProvider1.SetError(txt_confirmar, "La clave es distinta");
-                txt_confirmar.Focus();
+                errorProvider1.SetError(ConfirmarTextBox, "La clave es distinta");
+                ConfirmarTextBox.Focus();
                 paso = false;
             }
 
@@ -156,14 +156,14 @@ namespace RegistroUsuarios
             errorProvider1.Clear();
 
             int id;
-            int.TryParse(IdnumericUpDown1.Text, out id);
+            int.TryParse(IdNumericUpDown.Text, out id);
 
             Limpiar();
 
             if (PersonaBLL.Eliminar(id))
                 MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                errorProvider1.SetError(IdnumericUpDown1, "Id no existente");
+                errorProvider1.SetError(IdNumericUpDown, "Id no existente");
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
@@ -193,7 +193,7 @@ namespace RegistroUsuarios
         {
             int id;
             Persona personas = new Persona();
-            int.TryParse(IdnumericUpDown1.Text, out id);
+            int.TryParse(IdNumericUpDown.Text, out id);
 
             Limpiar();
 
@@ -209,7 +209,7 @@ namespace RegistroUsuarios
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
         }
@@ -219,19 +219,54 @@ namespace RegistroUsuarios
 
         }
 
-        private void txt_confirmar_TextChanged(object sender, EventArgs e)
+        private void ConfirmarTextBox_TextChanged(object sender, EventArgs e)
         {
-            txt_confirmar.PasswordChar = '*';
+            ConfirmarTextBox.PasswordChar = '*';
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void ActivoCheckBox_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void txt_clave_TextChanged(object sender, EventArgs e)
+        private void ClaveTextBox_TextChanged(object sender, EventArgs e)
         {
-            txt_clave.PasswordChar = '*';
+            ClaveTextBox.PasswordChar = '*';
+        }
+
+        private void IdNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AliasTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NombreTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FechaDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EmailTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RolComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
