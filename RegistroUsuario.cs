@@ -20,11 +20,6 @@ namespace RegistroUsuarios
             InitializeComponent();
         }
 
-        private void RegistroUsuario_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Limpiar()
         {
             IdNumericUpDown.Value = 0;
@@ -81,11 +76,6 @@ namespace RegistroUsuarios
         {
             bool paso = true;
             errorProvider1.Clear();
-            string cadena = "";
-            string cadena2 = "";
-
-            cadena = ClaveTextBox.Text;
-            cadena2 = ConfirmarTextBox.Text;
 
             if(AliasTextBox.Text == string.Empty)
             {
@@ -117,7 +107,7 @@ namespace RegistroUsuarios
                 EmailTextBox.Focus();
                 paso = false;
             }
-            else if(string.Equals(cadena, cadena2) != true)
+            else if(string.Equals(ClaveTextBox.Text, ConfirmarTextBox.Text) != true)
             {
                 errorProvider1.SetError(ConfirmarTextBox, "La clave es distinta");
                 ConfirmarTextBox.Focus();
@@ -127,16 +117,9 @@ namespace RegistroUsuarios
             {
                 errorProvider1.SetError(AliasTextBox, "El Campo alias ya existe");
                 AliasTextBox.Focus();
-                AliasTextBox.Clear();
                 paso = false;
             }
-
             return paso;
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void EliminarButton_Click(object sender, EventArgs e)
@@ -188,7 +171,6 @@ namespace RegistroUsuarios
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             int id;
-            string pronombre = "";
             Usuario usuarios = new Usuario();
             int.TryParse(IdNumericUpDown.Text, out id);
 
@@ -209,61 +191,6 @@ namespace RegistroUsuarios
         private void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ConfirmarTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ActivoCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ClaveTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void IdNumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AliasTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void NombreTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FechaDateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void EmailTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RolComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
