@@ -7,21 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RegistroUsuarios.Entidades;
-using RegistroUsuarios.BLL;
-using RegistroUsuarios.DAL;
+using RegistroDetalle.Entidades;
+using RegistroDetalle.BLL;
+using RegistroDetalle.DAL;
 
-namespace RegistroUsuarios
+namespace RegistroDetalle.UI
 {
-    public partial class RegistroUsuarios : Form
+    public partial class rUsuarios : Form
     {
-        public RegistroUsuarios()
+        public rUsuarios()
         {
             InitializeComponent();
+            RolComboBox.DataSource = RolesBLL.GetRoles();
+            RolComboBox.DisplayMember = "Descripcion";
+            RolComboBox.ValueMember = "RolId";
         }
 
         private void Limpiar()
         {
+            bool paso = false;
             IdNumericUpDown.Value = 0;
             AliasTextBox.Text = string.Empty;
             EmailTextBox.Text = string.Empty;
@@ -30,6 +34,7 @@ namespace RegistroUsuarios
             RolComboBox.Text = string.Empty;
             ConfirmarTextBox.Text = string.Empty;
             FechaDateTimePicker.Value = DateTime.Now;
+            ActivoCheckBox.Checked = paso;
             errorProvider1.Clear();
         }
 
@@ -69,12 +74,12 @@ namespace RegistroUsuarios
             return (usuarios != null);
         }
 
-        private void RegistroUsuarioForm_Load(object sender, EventArgs e)
-        {
-            RolComboBox.DataSource = RolesBLL.GetRoles();
-            RolComboBox.DisplayMember = "Descripcion";
-            RolComboBox.ValueMember = "RolId";
-        }
+        /*  private void RegistroUsuarioForm_Load(object sender, EventArgs e)
+          {
+              RolComboBox.DataSource = rRolesBLL.GetrRoles();
+              RolComboBox.DisplayMember = "Descripcion";
+              RolComboBox.ValueMember = "RolId";
+          }*/
 
         private bool Validar()
         {
@@ -117,15 +122,15 @@ namespace RegistroUsuarios
                 ConfirmarTextBox.Focus();
                 paso = false;
             }
-            else if (UsuarioBLL.ExisteAlias(AliasTextBox.Text))
+            else if(UsuarioBLL.ExisteAlias(AliasTextBox.Text,(int)IdNumericUpDown.Value))
             {
                 errorProvider1.SetError(AliasTextBox, "El Campo alias ya existe");
                 AliasTextBox.Focus();
                 paso = false;
             }
-            else if (UsuarioBLL.ExisteRol(RolComboBox.Text)) 
+            else if (UsuarioBLL.ExisteRol(RolComboBox.Text, (int)IdNumericUpDown.Value)) 
             {
-                errorProvider1.SetError(RolComboBox, "El Campo alias ya existe");
+                errorProvider1.SetError(RolComboBox, "Este Rol ya existe");
                 RolComboBox.Focus();
                 paso = false;
             }
@@ -157,24 +162,26 @@ namespace RegistroUsuarios
 
             usuarios = LlenaClase();
 
-            if ((ExisteEnLaBaseDeDatos()))
-            {
+            if (IdNumericUpDown.Value == 0)
                 paso = UsuarioBLL.Guardar(usuarios);
-                MessageBox.Show("Modificado!!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+            {
+                if (!ExisteEnLaBaseDeDatos())
+                {
+                    MessageBox.Show("No se puede modificar", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                paso = UsuarioBLL.Modificar(usuarios);
+            }
+
+            if (paso)
+            {
+                Limpiar();
+                MessageBox.Show("Guardado!!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                paso = UsuarioBLL.Guardar(usuarios);
-
-                if (paso)
-                {
-                    Limpiar();
-                    MessageBox.Show("Guardado!!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("No fue posible guardar, Id en existencia", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("No fue posible guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

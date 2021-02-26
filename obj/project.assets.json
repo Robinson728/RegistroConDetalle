@@ -1114,11 +1114,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Link\\OneDrive\\Documentos\\Custom Office Templates\\Semestre 1-2021\\Programación Aplicada\\Tarea3\\RegistroUsuarios\\RegistroUsuarios.csproj",
-      "projectName": "RegistroUsuarios",
-      "projectPath": "C:\\Users\\Link\\OneDrive\\Documentos\\Custom Office Templates\\Semestre 1-2021\\Programación Aplicada\\Tarea3\\RegistroUsuarios\\RegistroUsuarios.csproj",
+      "projectUniqueName": "C:\\Users\\Link\\OneDrive\\Documentos\\Custom Office Templates\\Semestre 1-2021\\Programación Aplicada\\Laboratorio\\Tarea5\\RegistroDetalle\\RegistroDetalle.csproj",
+      "projectName": "RegistroDetalle",
+      "projectPath": "C:\\Users\\Link\\OneDrive\\Documentos\\Custom Office Templates\\Semestre 1-2021\\Programación Aplicada\\Laboratorio\\Tarea5\\RegistroDetalle\\RegistroDetalle.csproj",
       "packagesPath": "C:\\Users\\Link\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Link\\OneDrive\\Documentos\\Custom Office Templates\\Semestre 1-2021\\Programación Aplicada\\Tarea3\\RegistroUsuarios\\obj\\",
+      "outputPath": "C:\\Users\\Link\\OneDrive\\Documentos\\Custom Office Templates\\Semestre 1-2021\\Programación Aplicada\\Laboratorio\\Tarea5\\RegistroDetalle\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Link\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1176,7 +1176,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }

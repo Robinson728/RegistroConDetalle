@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RegistroUsuarios.Entidades;
-using RegistroUsuarios.DAL;
+using RegistroDetalle.Entidades;
+using RegistroDetalle.DAL;
 using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 
-namespace RegistroUsuarios.BLL
+namespace RegistroDetalle.BLL
 {
     class RolesBLL
     {
@@ -48,7 +49,12 @@ namespace RegistroUsuarios.BLL
 
             try
             {
-                contexto.Entry(rol).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                contexto.Database.ExecuteSqlRaw($"Delete FROM RolesDetalle Where RolId={rol.RolId}");
+                foreach(var anterior in rol.Detalle)
+                {
+                    contexto.Entry(anterior).State = EntityState.Added;
+                }
+                contexto.Entry(rol).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -71,12 +77,8 @@ namespace RegistroUsuarios.BLL
             try
             {
                 var rol = contexto.Roles.Find(id);
-
-                if (rol != null)
-                {
-                    contexto.Roles.Remove(rol);
-                    paso = contexto.SaveChanges() > 0;
-                }
+                contexto.Entry(rol).State = EntityState.Deleted;
+                paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
             {
@@ -93,11 +95,11 @@ namespace RegistroUsuarios.BLL
         public static Roles Buscar(int id)
         {
             Contexto contexto = new Contexto();
-            Roles rol;
+            Roles rol = new Roles();
 
             try
             {
-                rol = contexto.Roles.Find(id);
+                rol = contexto.Roles.Include(e => e.Detalle).Where(p => p.RolId == id).SingleOrDefault();
             }
             catch (Exception)
             {
@@ -132,7 +134,7 @@ namespace RegistroUsuarios.BLL
             return encontrado;
         }
 
-        public static bool ExisteDescripcion(string pronombre)
+        public static bool ExisteDescripcion(string pronombre, int id)
         {
             Contexto contexto = new Contexto();
             bool encontrado = false;
@@ -148,6 +150,49 @@ namespace RegistroUsuarios.BLL
             finally
             {
                 contexto.Dispose();
+            }
+
+            if (encontrado)
+            {
+                Roles rol = Buscar(id);
+
+                if (rol == null)
+                    return true;
+
+                if (rol.Descripcion == pronombre)
+                    encontrado = false;
+            }
+
+            return encontrado;
+        }
+
+        public static bool EsActivo(bool estado, int id)
+        {
+            Contexto contexto = new Contexto();
+            bool encontrado = false;
+
+            try
+            {
+                encontrado = contexto.Roles.Any(e => e.esActivo == estado);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            if (encontrado)
+            {
+                Roles rol = Buscar(id);
+
+                if (rol == null)
+                    return true;
+
+                if (rol.esActivo == estado)
+                    encontrado = false;
             }
 
             return encontrado;
@@ -190,6 +235,7 @@ namespace RegistroUsuarios.BLL
             {
                 contexto.Dispose();
             }
+
             return lista;
         }
     }

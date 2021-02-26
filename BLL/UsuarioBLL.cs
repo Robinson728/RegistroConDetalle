@@ -1,5 +1,5 @@
-﻿using RegistroUsuarios.DAL;
-using RegistroUsuarios.Entidades;
+﻿using RegistroDetalle.DAL;
+using RegistroDetalle.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RegistroUsuarios.BLL
+namespace RegistroDetalle.BLL
 {
     public class UsuarioBLL
     {
@@ -132,7 +132,7 @@ namespace RegistroUsuarios.BLL
             return encontrado;
         }
 
-        public static bool ExisteAlias(string pronombre)
+        public static bool ExisteAlias(string pronombre, int id)
         {
             Contexto contexto = new Contexto();
             bool encontrado = false;
@@ -150,10 +150,21 @@ namespace RegistroUsuarios.BLL
                 contexto.Dispose();
             }
 
+            if (encontrado)
+            {
+                Usuario usuarios = Buscar(id);
+
+                if (usuarios == null)
+                    return true;
+
+                if (usuarios.Alias == pronombre)
+                    encontrado = false;
+            }
+
             return encontrado;
         }
 
-        public static bool ExisteRol(string roles)
+        public static bool ExisteRol(string roles, int id)
         {
             Contexto contexto = new Contexto();
             bool encontrado = false;
@@ -169,6 +180,17 @@ namespace RegistroUsuarios.BLL
             finally
             {
                 contexto.Dispose();
+            }
+
+            if (encontrado)
+            {
+                Usuario usuarios = Buscar(id);
+
+                if (usuarios == null)
+                    return true;
+
+                if (usuarios.Rol == roles)
+                    encontrado = false;
             }
 
             return encontrado;

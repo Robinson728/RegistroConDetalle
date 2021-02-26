@@ -1,7 +1,7 @@
 ﻿
-namespace RegistroUsuarios
+namespace RegistroDetalle.UI
 {
-    partial class RegistroUsuarios
+    partial class rUsuarios
     {
         /// <summary>
         ///  Required designer variable.
@@ -30,7 +30,7 @@ namespace RegistroUsuarios
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroUsuarios));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rUsuarios));
             this.FechaDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
@@ -59,6 +59,7 @@ namespace RegistroUsuarios
             // 
             // FechaDateTimePicker
             // 
+            this.FechaDateTimePicker.CustomFormat = "dd/MM/yyyy";
             this.FechaDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.FechaDateTimePicker.Location = new System.Drawing.Point(564, 125);
             this.FechaDateTimePicker.Name = "FechaDateTimePicker";
@@ -182,17 +183,7 @@ namespace RegistroUsuarios
             // 
             this.RolComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.RolComboBox.FormattingEnabled = true;
-            this.RolComboBox.Items.AddRange(new object[] {
-            "Presidente",
-            "Director",
-            "Administrador 1",
-            "Administrador 2",
-            "Administrador 3",
-            "Contador 1",
-            "Contador 2",
-            "Contador 3",
-            "Coordinador",
-            "Secretaria/o"});
+            this.RolComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.RolComboBox.Location = new System.Drawing.Point(491, 43);
             this.RolComboBox.Name = "RolComboBox";
             this.RolComboBox.Size = new System.Drawing.Size(176, 23);
@@ -262,7 +253,7 @@ namespace RegistroUsuarios
             this.label7.TabIndex = 55;
             this.label7.Text = "Alias";
             // 
-            // RegistroUsuarios
+            // rUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -291,7 +282,7 @@ namespace RegistroUsuarios
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "RegistroUsuarios";
+            this.Name = "rUsuarios";
             this.Text = "Registro de Usuario";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdNumericUpDown)).EndInit();

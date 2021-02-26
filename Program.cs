@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RegistroDetalle.UI;
 
-namespace RegistroUsuarios
+namespace RegistroDetalle
 {
     static class Program
     {
@@ -17,7 +18,7 @@ namespace RegistroUsuarios
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RegistroUsuarios());
+            Application.Run(new MainForms());
         }
     }
 }

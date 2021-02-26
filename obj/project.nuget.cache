@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "frrC4tSGJsbfAUXPI9dOT89NoXd6QQ4gLtjAS9/B7FHfys7ZkNrhzf6c7IeYR/tiW14Ceb5jMYTdYRUGVHW42A==",
+  "dgSpecHash": "8HIuFGeKzthgKx41T4Ri5XdfIuoyImUz5xbzVExWuj2Ed3svFAfykPXe29Tl6bTLKYOGPS6FkhUIoGIyP1aSjw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Link\\OneDrive\\Documentos\\Custom Office Templates\\Semestre 1-2021\\Programación Aplicada\\Tarea3\\RegistroUsuarios\\RegistroUsuarios.csproj",
+  "projectFilePath": "C:\\Users\\Link\\OneDrive\\Documentos\\Custom Office Templates\\Semestre 1-2021\\Programación Aplicada\\Laboratorio\\Tarea5\\RegistroDetalle\\RegistroDetalle.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Link\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Link\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
