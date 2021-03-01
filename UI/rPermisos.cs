@@ -84,7 +84,7 @@ namespace RegistroDetalle.UI
             }
             else
             {
-                MessageBox.Show("Permiso no encontrado", "Id no existente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Transacción Fallida", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

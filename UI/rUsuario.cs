@@ -25,16 +25,14 @@ namespace RegistroDetalle.UI
 
         private void Limpiar()
         {
-            bool paso = false;
             IdNumericUpDown.Value = 0;
-            AliasTextBox.Text = string.Empty;
-            EmailTextBox.Text = string.Empty;
-            NombreTextBox.Text = string.Empty;
-            ClaveTextBox.Text = string.Empty;
-            RolComboBox.Text = string.Empty;
-            ConfirmarTextBox.Text = string.Empty;
+            AliasTextBox.Clear();
+            EmailTextBox.Clear();
+            NombreTextBox.Clear();
+            ClaveTextBox.Clear();
+            ConfirmarTextBox.Clear();
             FechaDateTimePicker.Value = DateTime.Now;
-            ActivoCheckBox.Checked = paso;
+            ActivoCheckBox.Checked = false;
             errorProvider1.Clear();
         }
 
@@ -67,19 +65,6 @@ namespace RegistroDetalle.UI
 
             return usuarios;
         }
-        private bool ExisteEnLaBaseDeDatos()
-        {
-            Usuario usuarios = UsuarioBLL.Buscar((int)IdNumericUpDown.Value);
-
-            return (usuarios != null);
-        }
-
-        /*  private void RegistroUsuarioForm_Load(object sender, EventArgs e)
-          {
-              RolComboBox.DataSource = rRolesBLL.GetrRoles();
-              RolComboBox.DisplayMember = "Descripcion";
-              RolComboBox.ValueMember = "RolId";
-          }*/
 
         private bool Validar()
         {
@@ -147,7 +132,7 @@ namespace RegistroDetalle.UI
             Limpiar();
 
             if (UsuarioBLL.Eliminar(id))
-                MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Transacción Exitosa", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 errorProvider1.SetError(IdNumericUpDown, "Id no existente");
         }
@@ -155,33 +140,22 @@ namespace RegistroDetalle.UI
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             Usuario usuarios;
-            bool paso = false;
 
             if (!Validar())
                 return;
 
             usuarios = LlenaClase();
 
-            if (IdNumericUpDown.Value == 0)
-                paso = UsuarioBLL.Guardar(usuarios);
-            else
-            {
-                if (!ExisteEnLaBaseDeDatos())
-                {
-                    MessageBox.Show("No se puede modificar", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-                paso = UsuarioBLL.Modificar(usuarios);
-            }
+            var paso = UsuarioBLL.Guardar(usuarios);
 
             if (paso)
             {
                 Limpiar();
-                MessageBox.Show("Guardado!!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Transacción Exitosa!!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("No fue posible guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Transacción Fallida!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -201,7 +175,7 @@ namespace RegistroDetalle.UI
             }
             else
             {
-                MessageBox.Show("Persona no encontrada", "Id Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Transacción Fallida", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

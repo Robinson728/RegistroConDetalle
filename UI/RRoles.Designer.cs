@@ -243,6 +243,7 @@ namespace RegistroDetalle.UI
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "rRoles";
             this.Text = "Registro de Roles";
+            this.Load += new System.EventHandler(this.rRoles_Load);
             ((System.ComponentModel.ISupportInitialize)(this.IdNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.DetallesGroupBox.ResumeLayout(false);

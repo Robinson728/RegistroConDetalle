@@ -77,8 +77,11 @@ namespace RegistroDetalle.BLL
             try
             {
                 var rol = contexto.Roles.Find(id);
-                contexto.Entry(rol).State = EntityState.Deleted;
-                paso = contexto.SaveChanges() > 0;
+                if(rol != null)
+                {
+                    contexto.Entry(rol).State = EntityState.Deleted;
+                    paso = contexto.SaveChanges() > 0;
+                }
             }
             catch (Exception)
             {

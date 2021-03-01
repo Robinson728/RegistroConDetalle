@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RegistroDetalle.Entidades;
 
 namespace RegistroDetalle.UI
 {

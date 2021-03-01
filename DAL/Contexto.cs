@@ -25,7 +25,7 @@ namespace RegistroDetalle.DAL
             modelBuilder.Entity<Permisos>().HasData(
                     new Permisos() { PermisoId = 1, Permiso = "Descuenta" },
                     new Permisos() { PermisoId = 2, Permiso = "Vende" },
-                    new Permisos() { PermisoId = 3, Permiso = "Cobra" }
+                    new Permisos() { PermisoId = 3, Permiso = "Cobra" } 
                 );
         }
     }

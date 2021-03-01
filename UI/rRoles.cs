@@ -19,10 +19,6 @@ namespace RegistroDetalle.UI
         {
             InitializeComponent();
             this.Detalle = new List<RolesDetalle>();
-
-            PermisosComboBox.DataSource = PermisosBLL.GetPermisos();
-            PermisosComboBox.DisplayMember = "PermisoId";
-            PermisosComboBox.ValueMember = "Permiso";
         }
 
         private void CargarGrid()
@@ -33,14 +29,11 @@ namespace RegistroDetalle.UI
 
         private void Limpiar()
         {
-            ErrorProvider.Clear();
-            bool paso = false;
-
             IdNumericUpDown.Value = 0;
             DescripcionTextBox.Clear();
             ErrorProvider.Clear();
-            RolActivoCheckBox.Checked = paso;
-            AsignadoCheckBox.Checked = paso;
+            RolActivoCheckBox.Checked = false;
+            AsignadoCheckBox.Checked = false;
            //PermisosComboBox.Items.Clear();
             this.Detalle = new List<RolesDetalle>();
             CargarGrid();
@@ -69,12 +62,6 @@ namespace RegistroDetalle.UI
 
             return rol;
         }
-        private bool ExisteEnLaBaseDeDatos()
-        {
-            Roles rol = RolesBLL.Buscar((int)IdNumericUpDown.Value);
-
-            return (rol != null);
-        }
 
         private bool Validar()
         {
@@ -83,7 +70,7 @@ namespace RegistroDetalle.UI
 
             if (DescripcionTextBox.Text == string.Empty)
             {
-                ErrorProvider.SetError(DescripcionTextBox, "El campo Rol no puede estar vacío");
+                ErrorProvider.SetError(DescripcionTextBox, "El campo Descripcion no puede estar vacío");
                 DescripcionTextBox.Focus();
                 paso = false;
             }
@@ -125,7 +112,7 @@ namespace RegistroDetalle.UI
             }
             else
             {
-                MessageBox.Show("Rol no encontrado", "Id no existente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Transacción Fallida", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -137,33 +124,22 @@ namespace RegistroDetalle.UI
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             Roles rol;
-            bool paso = false;
 
             if (!Validar())
                 return;
 
             rol = LlenaClase();
 
-            if (IdNumericUpDown.Value == 0)
-                paso = RolesBLL.Guardar(rol);
-            else
-            {
-                if (!ExisteEnLaBaseDeDatos())
-                {
-                    MessageBox.Show("No se puede modificar", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-                paso = RolesBLL.Modificar(rol);
-            }
+            var paso = RolesBLL.Guardar(rol);
 
             if (paso)
             {
                 Limpiar();
-                MessageBox.Show("Guardado!!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Transacción Exitosa!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("No fue posible guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Transacción Fallida!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -176,14 +152,13 @@ namespace RegistroDetalle.UI
             Limpiar();
 
             if (RolesBLL.Eliminar(id))
-                MessageBox.Show("Eliminado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Transacción Exitosa", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 ErrorProvider.SetError(IdNumericUpDown, "Id no existe");
         }
 
         private void AgregarButton_Click(object sender, EventArgs e)
         {
-            bool paso = false;
             if (DetallesDataGridView.DataSource != null)
                 this.Detalle = (List<RolesDetalle>)DetallesDataGridView.DataSource;
 
@@ -197,8 +172,8 @@ namespace RegistroDetalle.UI
             );
             CargarGrid();
             PermisosComboBox.Focus();
-            //PermisosComboBox.Items.Clear();
-            AsignadoCheckBox.Checked = paso;
+            //PermisosComboBox.Text = " ";
+            AsignadoCheckBox.Checked = false;
         }
 
         private void RemoverButton_Click(object sender, EventArgs e)
@@ -208,6 +183,18 @@ namespace RegistroDetalle.UI
                 Detalle.RemoveAt(DetallesDataGridView.CurrentRow.Index);
                 CargarGrid();
             }
+            else
+            {
+                ErrorProvider.SetError(DetallesDataGridView, "No hay filas que remover");
+                DetallesDataGridView.Focus();
+            }
+        }
+
+        private void rRoles_Load(object sender, EventArgs e)
+        {
+            PermisosComboBox.DataSource = PermisosBLL.GetPermisos();
+            PermisosComboBox.DisplayMember = "PermisoId";
+            PermisosComboBox.ValueMember = "Permiso";
         }
     }
 }
